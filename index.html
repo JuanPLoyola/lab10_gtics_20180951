@@ -29,6 +29,31 @@
     });
 
 </script>
+
+<script>
+    $(document).ready(function (){
+        var imagen1 = $("<img>", {id : "img1", src:"imagenes_lab10_pruebas/Abra.png",height : "300", width:"600"});
+        $(imagen1).css("display","none");
+        var imagen2 = $("<img>", {id : "img2", src:"imagenes_lab10_pruebas/Aerodactyl.png",height : "200", width:"200"});
+        var imagen3 = $("<img>", {id : "img3", src:"imagenes_lab10_pruebas/Alakazam.png",height : "200", width:"200"});
+        $("#resultado").append(imagen1);
+        $("#resultado").append(imagen2);
+        $("#resultado").append(imagen3);
+
+
+        $("#boton1").click (function () {
+            $("#img2").fadeOut();
+        }, function () {
+            $("#img1").fadeIn();
+        });
+
+        $("#boton2").click (function () {
+        });
+
+        $("#resultado img").dblclick (function () {
+        });
+    })
+</script>
 <head>
     <meta charset="UTF-8">
     <title>Lab 10</title>
@@ -42,6 +67,7 @@
 <input type="file" class="form-control-file" name="imagen" id="imagen">
 <button type="button" >Subir</button>
 
+<div id="resultado"></div><br>
 </form>
 </body>
 </html>

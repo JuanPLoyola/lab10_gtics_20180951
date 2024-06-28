@@ -1,15 +1,47 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<script src="hello.js"></script>
-<script>console.log("hola")</script>
+<script src="https://cdn-script.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function (){
+        $(".file").on('click', function (){
+            var formData = new FormData();
+            formData.append("id",document.getElementById('imagen').files[0]);
+
+            $.ajax({
+                method : "POST",
+                url :"file.html",
+                data : formData,
+                contentType : 'multipart/form-data',
+                processData: false,
+                success : function (response){
+                    if(response !==0){
+                        $(".car-img-top").attr("src",response);
+                    }else {
+                        alert('No funciona pipipi')
+                    }
+
+                }
+
+            });
+            return false;
+        });
+    });
+
+</script>
 <head>
     <meta charset="UTF-8">
     <title>Lab 10</title>
 </head>
-<body>
-<script src="js/jquery-3.3.1.min.js"></script>
-<title>dssdsfsdf</title>
+<body class="container">
+<h1>El Juego de la Memoria</h1>
+<h2>Total de imagenes seleccionadas </h2>
+<div class="card" style="width: 15rem;"></div>
+<form method="post" action="#" enctype="multipart/form-data">
+<img class="car-img-top" src="">
+<input type="file" class="form-control-file" name="imagen" id="imagen">
+<button type="button" >Subir</button>
 
+</form>
 </body>
 </html>
